@@ -1,8 +1,6 @@
 use std::collections::HashMap;
 use std::env::args;
-use std::ffi::OsString;
 use std::fs::read_to_string;
-use std::fs::read_dir;
 use std::path::Path;
 
 fn main() {
@@ -67,7 +65,7 @@ fn main() {
             "ADD" => {
                 let a_register = first_operand.expect("Expected destination register");
                 let b_register = second_operand.expect("Expected source register");
-                let c_register = second_operand.expect("Expected source register");
+                let c_register = third_operand.expect("Expected source register");
                 let a_register = get_register_no(a_register, 1);
                 let b_register = get_register_no(b_register, 2);
                 let c_register = get_register_no(c_register, 3);
@@ -77,7 +75,7 @@ fn main() {
             "SUB" => {
                 let a_register = first_operand.expect("Expected destination register");
                 let b_register = second_operand.expect("Expected source register");
-                let c_register = second_operand.expect("Expected source register");
+                let c_register = third_operand.expect("Expected source register");
                 let a_register = get_register_no(a_register, 1);
                 let b_register = get_register_no(b_register, 2);
                 let c_register = get_register_no(c_register, 3);
@@ -99,7 +97,7 @@ fn main() {
             "AND" => {
                 let a_register = first_operand.expect("Expected destination register");
                 let b_register = second_operand.expect("Expected source register");
-                let c_register = second_operand.expect("Expected source register");
+                let c_register = third_operand.expect("Expected source register");
                 let a_register = get_register_no(a_register, 1);
                 let b_register = get_register_no(b_register, 2);
                 let c_register = get_register_no(c_register, 3);
@@ -109,7 +107,7 @@ fn main() {
             "OR" => {
                 let a_register = first_operand.expect("Expected destination register");
                 let b_register = second_operand.expect("Expected source register");
-                let c_register = second_operand.expect("Expected source register");
+                let c_register = third_operand.expect("Expected source register");
                 let a_register = get_register_no(a_register, 1);
                 let b_register = get_register_no(b_register, 2);
                 let c_register = get_register_no(c_register, 3);
@@ -119,7 +117,7 @@ fn main() {
             "XOR" => {
                 let a_register = first_operand.expect("Expected destination register");
                 let b_register = second_operand.expect("Expected source register");
-                let c_register = second_operand.expect("Expected source register");
+                let c_register = third_operand.expect("Expected source register");
                 let a_register = get_register_no(a_register, 1);
                 let b_register = get_register_no(b_register, 2);
                 let c_register = get_register_no(c_register, 3);
