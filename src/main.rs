@@ -130,7 +130,7 @@ fn main() {
                 let register = first_operand.expect("Expected register to not");
                 let no = get_register_no(register, 1);
                 registers[no] = !registers[no];
-                zero_flag = registers[a_register] == 0;
+                zero_flag = registers[no] == 0;
             },
             "SHL" => {
                 let register = first_operand.expect("Expected register to shift left");
