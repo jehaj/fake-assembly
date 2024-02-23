@@ -2,3 +2,5 @@ start:
     INC R7
     INC R7
     DEC R6
+    DEC R6
+    ADD R7, R6, R7

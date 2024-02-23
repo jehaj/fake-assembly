@@ -190,8 +190,7 @@ fn main() {
 }
 
 fn get_register_no(register: &str, i: usize) -> usize {
-    if register.len() != i+1 { panic!("Register is formatted wrongly") }
-    let second_char = register.chars().nth(i).unwrap();
+    let second_char = register.chars().nth(1).expect("Register is formatted wrongly");
     let no = second_char.to_digit(10).expect("Expected a register with a number");
     no as usize
 }
