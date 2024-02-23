@@ -1,1 +1,4 @@
-INC R7
+start:
+    INC R7
+    INC R7
+    DEC R6
