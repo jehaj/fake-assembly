@@ -71,7 +71,7 @@ fn main() {
                 let a_register = get_register_no(a_register, 1);
                 let b_register = get_register_no(b_register, 2);
                 let c_register = get_register_no(c_register, 3);
-                registers[a_register] = registers[b_register] + c_register;
+                registers[a_register] = registers[b_register] + registers[c_register];
             },
             "SUB" => {
                 let a_register = first_operand.expect("Expected destination register");
@@ -80,7 +80,7 @@ fn main() {
                 let a_register = get_register_no(a_register, 1);
                 let b_register = get_register_no(b_register, 2);
                 let c_register = get_register_no(c_register, 3);
-                registers[a_register] = registers[b_register] - c_register;
+                registers[a_register] = registers[b_register] - registers[c_register];
             },
             "INC" => {
                 let register = first_operand.expect("Expected register to increment");
