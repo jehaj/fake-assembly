@@ -72,6 +72,7 @@ fn main() {
                 let b_register = get_register_no(b_register, 2);
                 let c_register = get_register_no(c_register, 3);
                 registers[a_register] = registers[b_register] + registers[c_register];
+                zero_flag = registers[a_register] == 0;
             },
             "SUB" => {
                 let a_register = first_operand.expect("Expected destination register");
@@ -81,16 +82,19 @@ fn main() {
                 let b_register = get_register_no(b_register, 2);
                 let c_register = get_register_no(c_register, 3);
                 registers[a_register] = registers[b_register] - registers[c_register];
+                zero_flag = registers[a_register] == 0;
             },
             "INC" => {
                 let register = first_operand.expect("Expected register to increment");
                 let no = get_register_no(register, 1);
                 registers[no] += 1;
+                zero_flag = registers[no] == 0;
             },
             "DEC" => {
                 let register = first_operand.expect("Expected register to increment");
                 let no = get_register_no(register, 1);
                 registers[no] -= 1;
+                zero_flag = registers[no] == 0;
             },
             "AND" => {
                 let a_register = first_operand.expect("Expected destination register");
@@ -100,6 +104,7 @@ fn main() {
                 let b_register = get_register_no(b_register, 2);
                 let c_register = get_register_no(c_register, 3);
                 registers[a_register] = registers[b_register] & registers[c_register];
+                zero_flag = registers[a_register] == 0;
             },
             "OR" => {
                 let a_register = first_operand.expect("Expected destination register");
@@ -109,6 +114,7 @@ fn main() {
                 let b_register = get_register_no(b_register, 2);
                 let c_register = get_register_no(c_register, 3);
                 registers[a_register] = registers[b_register] | registers[c_register];
+                zero_flag = registers[a_register] == 0;
             },
             "XOR" => {
                 let a_register = first_operand.expect("Expected destination register");
@@ -118,11 +124,13 @@ fn main() {
                 let b_register = get_register_no(b_register, 2);
                 let c_register = get_register_no(c_register, 3);
                 registers[a_register] = registers[b_register] ^ registers[c_register];
+                zero_flag = registers[a_register] == 0;
             },
             "NOT" => {
                 let register = first_operand.expect("Expected register to not");
                 let no = get_register_no(register, 1);
                 registers[no] = !registers[no];
+                zero_flag = registers[a_register] == 0;
             },
             "SHL" => {
                 let register = first_operand.expect("Expected register to shift left");
