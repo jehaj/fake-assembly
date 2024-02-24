@@ -15,7 +15,7 @@ fn main() {
         Err(err) => panic!("Could not read file. Error is {err}"),
         Ok(s) => s,
     };
-    let program = program.lines().filter(|&l| l.trim() != "");
+    let program = program.lines().map(|l| l.split('#').next().unwrap()).filter(|&l| l.trim() != "");
     let mut program_without_labels = Vec::new();
     let mut label_lookup = HashMap::new();
     let mut counter = 0;

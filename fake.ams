@@ -1,5 +1,5 @@
 start:
-    INC R7
+    INC R7 # help me
     INC R7
     DEC R6
     DEC R6
