@@ -42,7 +42,6 @@ fn main() {
     let mut registers = [0i32; 8];
     let mut program_counter = 0;
     let mut zero_flag: bool = true;
-    println!("{:?}", label_lookup);
     while program_counter < program_without_labels.len() {
         let instruction = program_without_labels[program_counter];
         let (command, operands) = instruction.split_once(' ').expect("Expected operand...");
