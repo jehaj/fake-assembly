@@ -1,7 +1,7 @@
 # fake-assembly
 An interpreter for fake assembly described in the course Computer Architecture at Aarhus University.
 
-Run with
+## Usage
 You can clone the project and use `cargo` to run the interpreter. If you have the binary, then you 
 can use the second command.
 
@@ -10,6 +10,7 @@ can use the second command.
 > fake-assembly <file>
 ```
 
+## About the fake machine
 Overview over the registers.
 
 | Registers:      | Notes                                                                         |
