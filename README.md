@@ -1,5 +1,5 @@
 # fake-assembly
-An interpreter for fake assemply described in the course Computer Architecture at Aarhus University.
+An interpreter for fake assembly described in the course Computer Architecture at Aarhus University.
 
 Overview over the registers.
 
