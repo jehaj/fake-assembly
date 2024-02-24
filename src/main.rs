@@ -27,7 +27,7 @@ fn main() {
             if label.len() == 0 { panic!("Empty label at line {}", line_no+1) }
             let command = line_split.next().unwrap().trim();
             let command_on_same_line = command.trim().len() != 0;
-            label_lookup.insert(label, counter + !command_on_same_line as usize);
+            label_lookup.insert(label, counter);
             if !command_on_same_line { continue; }
         }
         let command = line.trim();
@@ -42,6 +42,7 @@ fn main() {
     let mut registers = [0i32; 8];
     let mut program_counter = 0;
     let mut zero_flag: bool = true;
+    println!("{:?}", label_lookup);
     while program_counter < program_without_labels.len() {
         let instruction = program_without_labels[program_counter];
         let (command, operands) = instruction.split_once(' ').expect("Expected operand...");
@@ -93,6 +94,7 @@ fn main() {
                 let no = get_register_no(register, 1);
                 registers[no] -= 1;
                 zero_flag = registers[no] == 0;
+                println!("value now is {}", registers[no]);
             },
             "AND" => {
                 let a_register = first_operand.expect("Expected destination register");
@@ -145,7 +147,7 @@ fn main() {
                 registers[no] = registers[no] >> amount;
             },
             "JZ" => {
-                if zero_flag == false {
+                if zero_flag == true {
                     let label = first_operand.expect("Expected label to jump to");
                     program_counter = match label_lookup.get(label) {
                         None => { panic!("Could not find label") },
@@ -155,11 +157,11 @@ fn main() {
                 }
             },
             "JNZ" => {
-                if zero_flag != false {
+                if zero_flag == false {
                     let label = first_operand.expect("Expected label to jump to");
                     program_counter = match label_lookup.get(label) {
                         None => { panic!("Could not find label") },
-                        Some(&v) => v
+                        Some(&v) => { println!("pc now {v}"); v }
                     };
                     continue
                 }

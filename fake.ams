@@ -1,6 +1,9 @@
 start:
-    INC R7 # help me
-    INC R7
+    INC R6 # help me
+    INC R6
+loop:
     DEC R6
-    DEC R6
+    JNZ loop # exit
+exit:
     ADD R7, R6, R7
+
